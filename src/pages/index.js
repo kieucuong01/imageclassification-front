@@ -6,6 +6,7 @@ import CustomDivider from '../components/CustomDivider';
 import Description from '../components/Description';
 import Hero from '../components/Hero';
 import Spacer from '../components/Spacer';
+import Evaluation from '../components/Evaluation';
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <Hero />
       <CustomDivider />
       <Description />
+      <Evaluation />
       <Spacer sx={{ pt: 20}} />
     </>
   );
