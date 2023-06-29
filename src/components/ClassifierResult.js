@@ -8,7 +8,6 @@ import { useTheme } from '@mui/material';
 
 const ClassifierResult = ({ selectedImage, classificationResult }) => {
   const theme = useTheme();
-  
   return (
     <>
       <Grid item xs={12}>
@@ -49,6 +48,7 @@ const ClassifierResult = ({ selectedImage, classificationResult }) => {
                     }
                   }}
                 >
+                  
                   <img 
                     src={selectedImage} 
                     height='250'

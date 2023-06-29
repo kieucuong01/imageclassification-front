@@ -24,23 +24,31 @@ const Classifier = () => {
   const [files, setFiles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [image, setImage] = useState(null);
-  
+  const [file, setFile] = useState();
+
+  function handleChange(e) {
+    setFile(URL.createObjectURL(e.target.files[0]));
+    handleDrop(e.target.files)
+  }
+
   const handleDrop = (files) => {
-    setIsLoading(true);
+    // setIsLoading(true);
     setFiles(files);
     setImage(null);
-    loadImage(files);
+    // loadImage(files);
+    setFiles(files);
   };
   
   const handleRemove = () => {
     setFiles([]);
+    setFile(null);
   };
   
   const loadImage = (files) => {
     setTimeout(() => {
       setFiles(files);
       if (setFiles.length) {
-        setIsLoading(false);
+        // setIsLoading(false);
       }
       setImage(null);
     }, 3000);
@@ -48,7 +56,7 @@ const Classifier = () => {
   
   const sendData = () => {
     setFiles([]);
-    setIsLoading(true);
+    // setIsLoading(true);
     
     const formData = new FormData();
     formData.append('image', files[0], files[0].name);
@@ -60,6 +68,7 @@ const Classifier = () => {
       }
     })
     .then(response => {
+      setImage(response);
       getClassificationResult(response);
     })
     .catch(err => console.log(err));
@@ -72,15 +81,17 @@ const Classifier = () => {
       }
     })
     .then(response => {
-      setImage(response);
+      // console.log(response)
+      // setImage(response);
     })
     .catch(err => console.log(err));
     
-    setIsLoading(false);
+    // setIsLoading(false);
   };
   
   const classifyAnother = () => {
     setImage(null);
+    setFile(null);
   };
   
   return (
@@ -120,14 +131,21 @@ const Classifier = () => {
               <Grid item xs={12}>
                 <Card>
                   <CardContent>
-                    <Box
-                      display='flex'
-                      flexDirection='row'
-                      alignItems='flex-start'
-                      justifyContent='center'
-                    >
-                      <ImageDropzone onDrop={handleDrop} />
-                    </Box>
+                   
+                    <input type="file" onChange={handleChange} />
+
+                    <img 
+                      src={file} 
+                      height='250'
+                      style={{
+                        display: 'block',
+                        margin: '0 auto',
+                        boxShadow: '6px 6px 3px #c5c5c5',
+                        borderRadius: '25px'
+                      }} 
+                    />
+
+                    {/* </Box> */}
                     <Box
                       display='flex'
                       flexDirection='row'
@@ -150,7 +168,7 @@ const Classifier = () => {
             {image && (
               <>
                 <ClassifierResult
-                  selectedImage={image.data.image}
+                  selectedImage={file}
                   classificationResult={capitalizeFirstLetter(replaceUnderscore(image.data.result))} 
                 />
                 <ClassifyAgain submitOnClick={classifyAnother} />
