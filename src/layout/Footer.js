@@ -41,7 +41,7 @@ const Footer = () => {
                     padding: 0
                   }}
                 >
-                  <ListItemButton component='a' href='#'>
+                  {/* <ListItemButton component='a' href='#'>
                     <ListItemText 
                       primary={
                         <Typography 
@@ -64,7 +64,7 @@ const Footer = () => {
                         </Typography>
                       }
                     />
-                  </ListItemButton>
+                  </ListItemButton> */}
                 </List>
               </Grid>
             </Hidden>
@@ -77,7 +77,7 @@ const Footer = () => {
                         variant='body2'
                         color={theme.palette.text.secondary}
                       >
-                        Copyright &copy; {new Date().getFullYear()} Bob's Programming Academy.
+                        Đồ án tốt nghiệp Machine Learning .
                       </Typography>
                     }
                   />
@@ -87,7 +87,7 @@ const Footer = () => {
             <Grid container item xs={12} md={4} justifyContent='center'>
               <List>
                 <ListItemButton>
-                  <ListItemText 
+                  {/* <ListItemText 
                     primary={
                       <Typography 
                         variant='body2'
@@ -118,7 +118,7 @@ const Footer = () => {
                         </Link>.
                       </Typography>
                     }
-                  />
+                  /> */}
                 </ListItemButton>
               </List>
             </Grid>

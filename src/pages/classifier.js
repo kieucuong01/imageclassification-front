@@ -36,7 +36,6 @@ const Classifier = () => {
     setFiles(files);
     setImage(null);
     // loadImage(files);
-    setFiles(files);
   };
   
   const handleRemove = () => {
