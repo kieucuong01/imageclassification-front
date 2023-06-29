@@ -54,8 +54,7 @@ const HeroButtons = () => {
             variant='outlined'
             color='primary'
             size='large'
-            href='#'
-            startIcon={<PlayIcon />}
+            href='https://github.com/kieucuong01/imageclassification'
             fullWidth={isMd ? false : true}
             disableElevation={true}
             sx={{
@@ -70,7 +69,7 @@ const HeroButtons = () => {
               }
             }}
           >
-            Watch Demo
+            Github
           </Button>
         </Box>
       </Box>
