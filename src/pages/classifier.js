@@ -32,7 +32,7 @@ const Classifier = () => {
   }
 
   const handleDrop = (files) => {
-    // setIsLoading(true);
+    setIsLoading(false);
     setFiles(files);
     setImage(null);
     // loadImage(files);
@@ -47,7 +47,7 @@ const Classifier = () => {
     setTimeout(() => {
       setFiles(files);
       if (setFiles.length) {
-        // setIsLoading(false);
+        setIsLoading(false);
       }
       setImage(null);
     }, 3000);
@@ -55,7 +55,7 @@ const Classifier = () => {
   
   const sendData = () => {
     setFiles([]);
-    // setIsLoading(true);
+    setIsLoading(true);
     
     const formData = new FormData();
     formData.append('image', files[0], files[0].name);
@@ -85,7 +85,7 @@ const Classifier = () => {
     })
     .catch(err => console.log(err));
     
-    // setIsLoading(false);
+    setIsLoading(false);
   };
   
   const classifyAnother = () => {
