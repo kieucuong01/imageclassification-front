@@ -50,8 +50,8 @@ const Evaluation = () => {
             paddingBottom={3}
             marginBottom='15px'
           >
-            Accuracy on train set : 96%
-            Accuracy on test set : 93%
+            Accuracy on train set : 97%
+            Accuracy on test set : 94%
 
             <div style={{textAlign: 'center'}} >
               <div style={{margin: '0 auto'}}>
